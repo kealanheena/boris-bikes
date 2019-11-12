@@ -1,4 +1,4 @@
-#Boris Bikes
+# Boris Bikes
 London's Boris Bikes wanted to create transport for London, a new bike system that has a network of docking stations and bikes that anyone can use.
 
 ## Build Status
@@ -18,7 +18,7 @@ You'll be able to:
 - Use a bike
 - Repair a bike
 
-##Getting Started
+## Getting Started
 
 This programme is used in the  terminal.
 
