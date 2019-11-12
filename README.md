@@ -9,8 +9,9 @@ Objects  | Messages
 Person  |
 Bike  | releasing_bike
 
-#### Person (uses bike) => if broken or in use => can't accesss bike
-####                    => if working and not in use => release bike
+#### Person (uses bike) 
+#### - => if broken or in use => can't accesss bike
+#### - => if working and not in use => release bike
 
 - noun = person
 - verb = working
@@ -20,8 +21,9 @@ Objects  | Messages
 Person  |
 Good Bike  | check_if_working
 
-#### Person (checks condition of bike) => if working => returns "working would you like to use"
-####                                   => if broken => return "sory this bike is broken"
+#### Person (checks condition of bike) 
+#### => if working => returns "working would you like to use"
+#### => if broken => return "sory this bike is broken"
 
 ## Build Status
 
