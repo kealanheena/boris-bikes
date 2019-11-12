@@ -10,8 +10,8 @@ Person  |
 Bike  | releasing_bike
 
 #### Person (uses bike) 
-#### - => if broken or in use => can't accesss bike
-#### - => if working and not in use => release bike
+#### => if broken or in use => can't accesss bike
+#### => if working and not in use => release bike
 
 - noun = person
 - verb = working
