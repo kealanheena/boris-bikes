@@ -1,30 +1,6 @@
 # Boris Bikes
 London's Boris Bikes wanted to create transport for London, a new bike system that has a network of docking stations and bikes that anyone can use.
 
-- noun = person
-- verb = releasing
-
-Objects  | Messages
-------------- | -------------
-Person  |
-Bike  | releasing_bike
-
-#### Person (uses bike) 
-#### => if broken or in use => can't accesss bike
-#### => if working and not in use => release bike
-
-- noun = person
-- verb = working
-
-Objects  | Messages
-------------- | -------------
-Person  |
-Good Bike  | check_if_working
-
-#### Person (checks condition of bike) 
-#### => if working => returns "working would you like to use"
-#### => if broken => return "sory this bike is broken"
-
 ## Build Status
 
 This project is currently a work in progress.

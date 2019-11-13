@@ -21,9 +21,17 @@ Good Bike  | check_if_working
 
 #### Person (checks condition of bike) 
 #### => if working => returns "working would you like to use"
-#### => if broken => return "sory this bike is broken"
+#### => if broken => return "sorry this bike is broken"
 
 # Domain Model
 
-### Broken bike => In Use Bike =>Functional Bike => Docked Bike => Bike
-### Stocked Bike Rack => Empty DockingStation => DockingStation
+### Broken bike => In Use Bike => Functional Bike => Docked Bike => Bike
+### Stocked Empty DockingStation => Empty DockingStation => DockingStation
+
+# Errors
+
+- uninitialized constant
+- docking_station.rb
+- line 1
+- Uninitialized Constant is a NameError that refers to a class or module
+- we could create a new class for "DockingStation"
