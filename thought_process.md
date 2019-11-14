@@ -35,3 +35,15 @@ Good Bike  | check_if_working
 - line 1
 - Uninitialized Constant is a NameError that refers to a class or module
 - we could create a new class for "DockingStation"
+
+# User Story pt 2
+
+Objects  | Messages
+------------- | -------------
+User  |
+Docking Station  | dock
+
+Objects  | Messages
+------------- | -------------
+User  |
+Bike | check_if_docked
