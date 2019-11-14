@@ -7,12 +7,18 @@ describe DockingStation do
     end
 
     it "returns an instance of bike" do
+      bike = Bike.new
+      subject.dock(bike)
       expect(subject.release_bike).to be_instance_of Bike
     end
     
     it "returns true to the working? method" do
-      bike = subject.release_bike
+      bike = Bike.new
       expect(bike.working?).to eq true
+    end
+
+    it "gives an error message if there is no biked docked" do
+      expect { subject.release_bike }.to raise_error("There is no bike available!")
     end
   end
 

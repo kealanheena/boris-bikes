@@ -2,7 +2,8 @@ require "./lib/bikes"
 
 class DockingStation
   def release_bike
-    Bike.new
+    raise "There is no bike available!" if !@docked_bike
+    @docked_bike
   end
 
   def dock(bike)
