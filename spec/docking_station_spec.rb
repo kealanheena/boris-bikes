@@ -18,14 +18,16 @@ describe DockingStation do
 
   describe "#dock" do
     it "stores Bike instances in an instance of DockingStation" do 
-      bike = subject.release_bike
+      # bike = subject.release_bike
+      bike = Bike.new
       expect(subject.dock(bike)).to eq bike
     end
   end
 
   describe "#docked_bike" do
     it "check if the DockingStation has a bike" do 
-      bike = subject.release_bike
+      # bike = subject.release_bike
+      bike = Bike.new
       subject.dock(bike)
       expect(subject.docked_bike).to eq bike
     end

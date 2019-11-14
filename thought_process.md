@@ -47,3 +47,11 @@ Objects  | Messages
 ------------- | -------------
 User  |
 Bike | check_if_docked
+
+## attr_reader
+
+attr_reader :docked_bike
+- translated to:
+def docked_bike
+  @docked_bike
+end

@@ -9,9 +9,10 @@ class DockingStation
     @docked_bike = bike
   end
 
+  attr_reader :docked_bike
   # def docked?
   #   @docked_bike
   # end
-  attr_reader :docked_bike
+  
 end
 
