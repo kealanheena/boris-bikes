@@ -26,8 +26,15 @@ describe DockingStation do
     it "stores Bike instances in an instance of DockingStation" do 
       # bike = subject.release_bike
       bike = Bike.new
-      expect(subject.dock(bike)).to eq bike
+      expect(subject.dock(bike)).to eq [bike]
     end
+
+    it "should be able to dock the default capacity of 20 bikes" do
+      station = DockingStation.new
+      20.times{ station.dock(Bike.new)}
+      expect(station.bikes.count).to eq(20)
+    end
+
   end
 
   describe "#docked_bike" do
@@ -35,19 +42,21 @@ describe DockingStation do
       # bike = subject.release_bike
       bike = Bike.new
       subject.dock(bike)
-      expect(subject.docked_bike).to eq bike
+      expect(subject.bikes).to eq [bike]
     end
 
     it "check if the DockingStation has a bike" do 
-      expect(subject.docked_bike).to eq nil
+      expect(subject.bikes).to eq []
     end
 
     it "gives an error if capacity is full" do
-      docked_bike = Bike.new
-      subject.dock(docked_bike)
-      new_bike = Bike.new
-      expect { subject.dock(new_bike) }.to raise_error("There is no space available!")
+      # docked_bike = Bike.new
+      # subject.dock(docked_bike)
+      # new_bike = Bike.new
+      expect { 21.times { subject.dock(Bike.new) } }.to raise_error("There is no space available!")
     end
+
+
   end
 
 end
