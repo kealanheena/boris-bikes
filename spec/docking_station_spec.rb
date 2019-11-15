@@ -53,11 +53,28 @@ describe DockingStation do
       # docked_bike = Bike.new
       # subject.dock(docked_bike)
       # new_bike = Bike.new
-      expect { (DockingStation::DEFAULT_CAPACITY + 1 ).times { subject.dock(Bike.new) } }.to raise_error("There is no space available!")
+      expect { (DockingStation.new::capacity + 1 ).times { subject.dock(Bike.new) } }.to raise_error("There is no space available!")
     end
 
+    it "gives an error if capacity is full" do
+      station = DockingStation.new(19)
+      expect { (station::capacity + 1 ).times { station.dock(Bike.new) } }.to raise_error("There is no space available!")
+    end
 
+    it "gives an error if capacity is full" do
+      station = DockingStation.new(21)
+      expect { (station::capacity + 1 ).times { station.dock(Bike.new) } }.to raise_error("There is no space available!")
+    end
   end
 
+  describe "#initilize" do
+    it "capacity should equal 25 when 25 is passed as an argument" do
+      expect(DockingStation.new(25).capacity).to eq(25)
+    end
+    
+    it "capacity should equal 20 when no argument is passed" do
+      expect(subject::capacity).to eq(20)
+    end
+  end
 end
 
