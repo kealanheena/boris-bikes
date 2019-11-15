@@ -41,6 +41,13 @@ describe DockingStation do
     it "check if the DockingStation has a bike" do 
       expect(subject.docked_bike).to eq nil
     end
+
+    it "gives an error if capacity is full" do
+      docked_bike = Bike.new
+      subject.dock(docked_bike)
+      new_bike = Bike.new
+      expect { subject.dock(new_bike) }.to raise_error("There is no space available!")
+    end
   end
 
 end
