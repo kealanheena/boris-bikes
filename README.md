@@ -1,10 +1,6 @@
 # Boris Bikes
 London's Boris Bikes wanted to create transport for London, a new bike system that has a network of docking stations and bikes that anyone can use.
 
-## Build Status
-
-This project is currently a work in progress.
-
 ## Code style
 
 - OOD
@@ -33,24 +29,29 @@ This programme is used in the terminal.
 
 - Run "ruby  boris-bikes.rb" file in terminal.
 
-#### Intructions
-
-- ?????
-
 ## Running the tests
 
 You can run tests by running "rspec" in boris-bikes file.
 
 ### Tests 
 
-- Check if bikes are usable
-- Check if bike is broken(new bike are always working)
-- Check if a docked is returned to bike rack
-- To see if breaking a bike puts it with bikes needing repairs
+### Bike class
 
+- Check if it responds to the 'working?' method
+
+### Docking Station class
+
+- Check if it responds to the 'release_bike' method
+- Check if 'release_bike' returns an instace of a bike
+- Check if a bike is working with 'working?' method
+- Throwing an error if you try to release a bike from an empty docking station
+- Check if after docking a vike the bike is in that docking station
+- Checking the default capacity of the docking station
+- Checking if the docking station is empty by default
+- Throwing an error when theres not enough room for another bike
+- Check if passing an argument changes the capacity
 
 ## Versioning
 
 "boris-bikes" is using ruby version 2.6.3, to change ruby versions run "rvm install ruby-2.6.3" in terminal.
 
-# This is a change
