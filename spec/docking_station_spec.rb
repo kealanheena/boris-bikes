@@ -12,10 +12,10 @@ describe DockingStation do
       expect(subject.release_bike).to be_instance_of Bike
     end
     
-    it "returns true to the working? method" do
-      bike = Bike.new
-      expect(bike.working?).to eq true
-    end
+    # it "returns true to the working? method" do
+    #   bike = Bike.new
+    #   expect(bike.working?).to eq true
+    # end
 
     it "gives an error message if there is no biked docked" do
       expect { subject.release_bike }.to raise_error("There is no bike available!")
