@@ -6,7 +6,7 @@ class DockingStation
 
   DEFAULT_CAPACITY = 20
 
-  def initialize(capacity=DEFAULT_CAPACITY)
+  def initialize(capacity = DEFAULT_CAPACITY)
     @capacity = capacity
     @bikes = []
   end
@@ -16,7 +16,8 @@ class DockingStation
     @bikes.pop
   end
 
-  def dock(bike)
+  def dock(bike, broken = false)
+    return 'broken' if broken
     raise "There is no space available!" if full?
     @bikes << bike
   end
