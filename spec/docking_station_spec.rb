@@ -12,10 +12,12 @@ describe DockingStation do
       expect(subject.release_bike).to be_instance_of Bike
     end
     
-    # it "returns true to the working? method" do
-    #   bike = Bike.new
-    #   expect(bike.working?).to eq true
-    # end
+    it "doesn't realease a broken bike" do
+      bike = Bike.new
+      bike.report
+      subject.dock(bike)
+      expect { subject.release_bike }.to raise_error("This bike is broken")
+    end
 
     it "gives an error message if there is no biked docked" do
       expect { subject.release_bike }.to raise_error("There is no bike available!")
@@ -33,12 +35,6 @@ describe DockingStation do
       (DockingStation::DEFAULT_CAPACITY).times{ station.dock(Bike.new)}
       expect(station.bikes.count).to eq(20)
     end
-
-    it 'should take a second variable when docking the bike to report as broken' do
-      bike = Bike.new
-      expect(subject.dock(bike, true)).to eq('broken')
-    end
-
   end
 
   describe "#docked_bike" do
