@@ -37,7 +37,7 @@ describe DockingStation do
     end
   end
 
-  describe "#docked_bike" do
+  describe "#dock" do
     it "check if the DockingStation has a bike" do 
       bike = Bike.new
       subject.dock(bike)
@@ -60,6 +60,12 @@ describe DockingStation do
     it "gives an error if capacity is full" do
       station = DockingStation.new(21)
       expect { (station::capacity + 1 ).times { station.dock(Bike.new) } }.to raise_error("There is no space available!")
+    end
+
+    it 'should allow broken bikes to be docked' do
+      bike = Bike.new
+      bike.report
+      expect(subject.dock(bike)).to eq [bike]
     end
   end
 
