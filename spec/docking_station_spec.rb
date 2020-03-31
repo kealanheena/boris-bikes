@@ -43,28 +43,22 @@ describe DockingStation do
       (DockingStation::DEFAULT_CAPACITY).times{ station.dock(@bike)}
       expect(station.bikes.count).to eq(20)
     end
-  end
 
-  describe "#dock" do
-    it "check if the DockingStation has a bike" do 
+    it "should dock a bike in the DockingStation" do 
       subject.dock(@bike)
       expect(subject.bikes).to eq [@bike]
     end
 
-    it "check if the DockingStation has a bike" do 
-      expect(subject.bikes).to eq []
-    end
-
-    it "gives an error if capacity is full" do
+    it "throws an error if capacity is full" do
       expect { (DockingStation.new::capacity + 1 ).times { subject.dock(@bike) } }.to raise_error("There is no space available!")
     end
 
-    it "gives an error if capacity is full" do
+    it "throws an error if capacity is full when initialized with a capacity of 19" do
       station = DockingStation.new(19)
       expect { (station::capacity + 1 ).times { station.dock(@bike) } }.to raise_error("There is no space available!")
     end
 
-    it "gives an error if capacity is full" do
+    it "throws an error if capacity is full when initialized with a capacity of 21" do
       station = DockingStation.new(21)
       expect { (station::capacity + 1 ).times { station.dock(@bike) } }.to raise_error("There is no space available!")
     end
@@ -75,7 +69,11 @@ describe DockingStation do
     end
   end
 
-  describe "#initilize" do
+  describe "#initialized" do
+    it "should be initialized with no bikes" do 
+      expect(subject.bikes).to eq []
+    end
+
     it "capacity should equal 25 when 25 is passed as an argument" do
       expect(DockingStation.new(25).capacity).to eq(25)
     end

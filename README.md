@@ -93,21 +93,37 @@ You can run tests by running "rspec" in boris-bikes file.
 
 ### Tests 
 
-### Bike class
+### Bike Class
 
-- Check if it responds to the 'working?' method
+- #working?
+  - responds to 'working?' method
+  - should be working when initialized
+- #broken?
+  - responds to 'broken?' method
+  - should not be broken when initialized
+- #report
+  - can be reported as broken
 
-### Docking Station class
+### Docking Station Class
 
-- Check if it responds to the 'release_bike' method
-- Check if 'release_bike' returns an instace of a bike
-- Check if a bike is working with 'working?' method
-- Throwing an error if you try to release a bike from an empty docking station
-- Check if after docking a vike the bike is in that docking station
-- Checking the default capacity of the docking station
-- Checking if the docking station is empty by default
-- Throwing an error when theres not enough room for another bike
-- Check if passing an argument changes the capacity
+- #release_bike
+  - responds to 'release_bike' method
+  - returns the bike
+  - doesn't realease a broken bike
+  - gives an error message if there is no biked docked
+  - releases working bikes
+- #dock
+  - stores Bike instances in an instance of DockingStation
+  - should be able to dock the default capacity of 20 bikes
+  - should dock a bike in the DockingStation
+  - throws an error if capacity is full
+  - throws an error if capacity is full when initialized with a capacity of 19
+  - throws an error if capacity is full when initialized with a capacity of 21
+  - should allow broken bikes to be docked
+- #initialized
+ - should be initialized with no bikes
+ - capacity should equal 25 when 25 is passed as an argument
+ - capacity should equal 20 when no argument is passed
 
 ## Versioning
 
