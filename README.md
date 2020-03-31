@@ -133,6 +133,17 @@ You can run tests by running "rspec" in boris-bikes file.
  - capacity should equal 25 when 25 is passed as an argument
  - capacity should equal 20 when no argument is passed
 
+ ### Van Class
+
+ - #collect
+  - should only collect the broken bikes
+
+### Garage Class
+
+- #repair
+  - should repair the broken bikes
+  - should raise an error if the bike isn\'t broken
+
 ## Versioning
 
 "boris-bikes" is using ruby version 2.6.3, to change ruby versions run "rvm install ruby-2.6.3" in terminal.
