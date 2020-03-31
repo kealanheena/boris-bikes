@@ -1,8 +1,22 @@
 require "bikes"
 
 describe Bike do
+  describe '#working'do
+    it "responds to 'working?' method" do
+      expect(subject).respond_to? (:working?)
+    end
+
+    it "should be working when initialized" do
+      expect(subject.working?).to eq true
+    end
+  end
+
   describe '#broken'do
     it "responds to 'broken?' method" do
+      expect(subject).respond_to? (:broken?)
+    end
+
+    it "should not be broken when initialized" do
       expect(subject).respond_to? (:broken?)
     end
   end
