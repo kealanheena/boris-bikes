@@ -7,6 +7,8 @@ class Garage
   end
 
   def repair(bike)
+    raise "This bike is already working" unless bike.broken?
+
     @fixed_bikes << bike
   end
 end
