@@ -40,7 +40,7 @@ describe DockingStation do
 
     it "should be able to dock the default capacity of 20 bikes" do
       station = DockingStation.new
-      (DockingStation::DEFAULT_CAPACITY).times{ station.dock(@bike)}
+      DockingStation::DEFAULT_CAPACITY.times { station.dock(@bike) }
       expect(station.bikes.count).to eq(20)
     end
 
@@ -50,17 +50,17 @@ describe DockingStation do
     end
 
     it "throws an error if capacity is full" do
-      expect { (DockingStation.new::capacity + 1 ).times { subject.dock(@bike) } }.to raise_error("There is no space available!")
+      expect { (DockingStation.new::capacity + 1).times { subject.dock(@bike) } }.to raise_error("There is no space available!")
     end
 
     it "throws an error if capacity is full when initialized with a capacity of 19" do
       station = DockingStation.new(19)
-      expect { (station::capacity + 1 ).times { station.dock(@bike) } }.to raise_error("There is no space available!")
+      expect { (station::capacity + 1).times { station.dock(@bike) } }.to raise_error("There is no space available!")
     end
 
     it "throws an error if capacity is full when initialized with a capacity of 21" do
       station = DockingStation.new(21)
-      expect { (station::capacity + 1 ).times { station.dock(@bike) } }.to raise_error("There is no space available!")
+      expect { (station::capacity + 1).times { station.dock(@bike) } }.to raise_error("There is no space available!")
     end
 
     it 'should allow broken bikes to be docked' do
@@ -83,4 +83,3 @@ describe DockingStation do
     end
   end
 end
-

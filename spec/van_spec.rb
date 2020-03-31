@@ -1,4 +1,4 @@
-require 'van.rb'
+require 'van'
 
 describe Van do
 
@@ -22,5 +22,4 @@ describe Van do
       expect(van.collect(@dockingstation)).to eq [@bike]
     end
   end
-
 end

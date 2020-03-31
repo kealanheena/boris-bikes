@@ -9,5 +9,4 @@ class Van
     }
     @broken_bikes
   end
-
 end
