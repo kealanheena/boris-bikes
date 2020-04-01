@@ -34,8 +34,4 @@ class DockingStation
     true if @bikes.count < 1
   end
   
-  # def docked?
-  #   @docked_bike
-  # end
-  
 end

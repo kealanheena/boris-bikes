@@ -72,10 +72,19 @@ I'd like vans to collect working bikes from garages and distribute them to docki
 You'll be able to:
 
 - Create new bike
+- Create new dockingstation
+- Create new van
+- Create new garage
 - Use a bike
-- Report a broken bike
-- Check if a bike works
 - Dock a bike
+- Check if a bike works
+- Report a broken bike
+- Collect bikes from docking station
+- Deliver bikes to garage
+- You'll be given an error:
+  - If you try to take a bike when the dockingstation is empty
+  - If you try to take a bike that isn't working from dockingstation
+  - If you try to dock a bike land when the dockingstation is full
 
 ## Getting Started
 
