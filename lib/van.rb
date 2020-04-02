@@ -1,6 +1,6 @@
 class Van
 
-  attr_reader :capacity
+  attr_reader :capacity, :bikes
 
   DEFAULT_CAPACITY = 20
 
@@ -20,6 +20,7 @@ class Van
 
   def garage_collection(garage)
     raise "There is no bikes to collect!" if garage.empty?
+    raise "There is no space available!" if full? 
 
     garage.bikes.each { |bike| 
       @bikes << garage.bikes.delete(bike) unless bike.broken?

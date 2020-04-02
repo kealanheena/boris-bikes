@@ -67,6 +67,12 @@ describe Van do
       allow(@garage).to receive(:empty?) { true }
       expect { subject.garage_collection(@garage) }.to raise_error("There is no bikes to collect!")
     end
+
+    it 'should not collect bikes if the van is full' do
+      allow(@garage).to receive(:bikes) { [@bike, @bike2] }
+      allow(subject).to receive(:full?) { true }
+      expect { subject.garage_collection(@garage) }.to raise_error("There is no space available!")
+    end
   end
 
   describe '#garage_delivery' do
