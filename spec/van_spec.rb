@@ -69,5 +69,9 @@ describe Van do
       subject.station_collection(@dockingstation)
       expect(subject.garage_delivery(@garage)).to eq [@bike, @bike2]
     end
+
+    it 'should raise an error if the van is empty' do
+      expect{ subject.garage_delivery(@garage) }.to raise_error("There's no bikes in this van")
+    end
   end
 end
