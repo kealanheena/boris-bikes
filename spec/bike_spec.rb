@@ -17,7 +17,13 @@ describe Bike do
     end
 
     it "should not be broken when initialized" do
-      expect(subject).respond_to?(:broken?)
+      expect(subject.broken?).to be_falsey
+    end
+
+    it "should return true when broken? is called after being reported" do
+      bike = Bike.new
+      bike.report
+      expect(bike.broken?).to eq true
     end
   end
 

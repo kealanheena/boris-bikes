@@ -10,4 +10,8 @@ class Bike
   def report
     @broken = true
   end
+
+  def repair
+    @broken = false
+  end
 end

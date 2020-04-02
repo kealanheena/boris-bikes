@@ -29,30 +29,30 @@ describe Van do
     end
   end
 
-  describe '#collect' do
-    it 'should only collect the broken bikes if the container is a docking station' do 
+  describe '#station_collection' do
+    it 'should only collect the broken bikes from a docking station' do 
       van = Van.new
-      expect(van.collect(@dockingstation)).to eq [@bike]
+      expect(van.station_collection(@dockingstation)).to eq [@bike]
     end
 
     it 'should throw an error if it tries to collect at bike while at full capacity' do
       allow(@dockingstation).to receive(:bikes) { [@bike] }
-      20.times { subject.collect(@dockingstation) }
-      expect { subject.collect(@dockingstation) }.to raise_error("There is no space available!")
+      20.times { subject.station_collection(@dockingstation) }
+      expect { subject.station_collection(@dockingstation) }.to raise_error("There is no space available!")
     end
 
     it 'should throw an error if it tries to collect at bike while at full capacity' do
       van = Van.new(19)
       allow(@dockingstation).to receive(:bikes) { [@bike] }
-      19.times { van.collect(@dockingstation) }
-      expect { van.collect(@dockingstation) }.to raise_error("There is no space available!")
+      19.times { van.station_collection(@dockingstation) }
+      expect { van.station_collection(@dockingstation) }.to raise_error("There is no space available!")
     end
 
     it 'should throw an error if it tries to collect at bike while at full capacity' do
       van = Van.new(21)
       allow(@dockingstation).to receive(:bikes) { [@bike] }
-      21.times { van.collect(@dockingstation) }
-      expect { van.collect(@dockingstation) }.to raise_error("There is no space available!")
+      21.times { van.station_collection(@dockingstation) }
+      expect { van.station_collection(@dockingstation) }.to raise_error("There is no space available!")
     end
   end
 

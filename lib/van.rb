@@ -9,10 +9,11 @@ class Van
     @bikes = []
   end
 
-  def collect(container)
+  def station_collection(dockingstation)
     raise "There is no space available!" if full?
-    container.bikes.each { |bike| 
-      @bikes << container.bikes.delete(bike) if bike.broken?
+    
+    dockingstation.bikes.each { |bike| 
+      @bikes << dockingstation.bikes.delete(bike) if bike.broken?
     }
     @bikes
   end
@@ -26,7 +27,11 @@ class Van
   private
 
   def full?
-    @bikes.length >= capacity
+    @bikes.count >= capacity
+  end
+
+  def empty?
+    @bikes.count < 1
   end
 
 end
