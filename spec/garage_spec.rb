@@ -13,7 +13,7 @@ describe Garage do
     it 'should repair the broken bikes' do
       garage = Garage.new
       garage.repair(@bike)
-      expect(garage.fixed_bikes).to eq [@bike]
+      expect(garage.bikes).to eq [@bike]
     end
 
     it 'should raise an error if the bike isn\'t broken' do

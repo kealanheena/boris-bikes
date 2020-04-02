@@ -1,14 +1,14 @@
 class Garage
 
-  attr_reader :fixed_bikes
+  attr_reader :bikes
 
   def initialize
-    @fixed_bikes = []
+    @bikes = []
   end
 
   def repair(bike)
     raise "This bike is already working" unless bike.broken?
 
-    @fixed_bikes << bike
+    @bikes << bike
   end
 end
