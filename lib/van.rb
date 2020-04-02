@@ -9,7 +9,8 @@ class Van
     @bikes = []
   end
 
-  def station_collection(dockingstation)
+  def station_collection(dockingstation) 
+    raise "There is no bikes to collect!" if dockingstation.empty?
     raise "There is no space available!" if full?
 
     dockingstation.bikes.each { |bike| 

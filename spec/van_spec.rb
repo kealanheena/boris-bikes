@@ -10,6 +10,7 @@ describe Van do
     allow(@bike).to receive(:broken?) { true }
     allow(@bike2).to receive(:broken?) { false }
     allow(@dockingstation).to receive(:bikes) { [@bike, @bike2] }
+    allow(@dockingstation).to receive(:empty?) { false }
     allow(@garage).to receive(:bikes) { [] }
     allow(@garage).to receive(:empty?) { false }
     allow(@garage).to receive(:full?) { false }
@@ -34,6 +35,12 @@ describe Van do
   describe '#station_collection' do
     it 'should only collect the broken bikes from a docking station' do 
       expect(subject.station_collection(@dockingstation)).to eq [@bike]
+    end
+
+    it 'should throw an error when the docking station is empty' do
+      allow(@dockingstation).to receive(:empty?) { true }
+      expect { subject.station_collection(@dockingstation) }.to raise_error("There is no bikes to collect!")
+
     end
 
     it 'should throw an error if it tries to collect at bike while at full capacity' do
