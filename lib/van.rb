@@ -20,7 +20,7 @@ class Van
 
   def garage_delivery(garage)
     @bikes.each { |bike|
-      container.bikes << @broken_bikes.delete(bike) if bike.broken? && !garage.full?
+      garage.bikes << @bikes.delete(bike) if bike.broken? && !garage.full?
     }
     @bikes
   end

@@ -11,6 +11,7 @@ describe Van do
     allow(@bike2).to receive(:broken?) { false }
     allow(@dockingstation).to receive(:bikes) { [@bike, @bike2] }
     allow(@garage).to receive(:bikes) { [] }
+    allow(@garage).to receive(:full?) { false }
   end
 
   describe 'initialize' do
@@ -56,11 +57,17 @@ describe Van do
     end
   end
 
-  # describe '#deliver' do
-  #   it 'should deliver the broken bikes to the garage' do
-  #     van = Van.new
-  #     van.collect(@dockingstation)
-  #     expect(van.deliver(@garage)).to eq []
-  #   end
-  # end
+  describe '#deliver' do
+    it 'should deliver the broken bikes to the garage' do
+      subject.station_collection(@dockingstation)
+      expect(subject.garage_delivery(@garage)).to eq []
+    end
+
+    it 'should not diliver bikes when the garage is full' do
+      allow(@garage).to receive(:full?) { true }
+      allow(@bike2).to receive(:broken?) { true }
+      subject.station_collection(@dockingstation)
+      expect(subject.garage_delivery(@garage)).to eq [@bike, @bike2]
+    end
+  end
 end

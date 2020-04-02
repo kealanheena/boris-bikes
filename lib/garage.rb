@@ -19,7 +19,7 @@ class Garage
   private
 
   def full?
-
+    @bikes.count >= capacity
   end
 
   def present?(bike)
