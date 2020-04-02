@@ -22,6 +22,10 @@ class Garage
     @bikes.count >= capacity
   end
 
+  def empty?
+    @bikes.count < 1
+  end
+
   def present?(bike)
     @bikes.include?(bike)
   end

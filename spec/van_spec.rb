@@ -11,6 +11,7 @@ describe Van do
     allow(@bike2).to receive(:broken?) { false }
     allow(@dockingstation).to receive(:bikes) { [@bike, @bike2] }
     allow(@garage).to receive(:bikes) { [] }
+    allow(@garage).to receive(:empty?) { false }
     allow(@garage).to receive(:full?) { false }
   end
 
@@ -61,6 +62,11 @@ describe Van do
       allow(@garage).to receive(:bikes) { [@bike, @bike2] }
       expect(subject.garage_collection(@garage)).to eq [@bike2]
     end
+
+    it 'should throw an error if the garage is empty' do
+      allow(@garage).to receive(:empty?) { true }
+      expect { subject.garage_collection(@garage) }.to raise_error("There is no bikes to collect!")
+    end
   end
 
   describe '#garage_delivery' do
@@ -69,7 +75,7 @@ describe Van do
       expect(subject.garage_delivery(@garage)).to eq []
     end
 
-    it 'should not diliver bikes when the garage is full' do
+    it 'should not deliver bikes when the garage is full' do
       allow(@garage).to receive(:full?) { true }
       allow(@bike2).to receive(:broken?) { true }
       subject.station_collection(@dockingstation)
