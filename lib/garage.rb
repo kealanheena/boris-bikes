@@ -1,8 +1,11 @@
 class Garage
 
-  attr_reader :bikes
+  attr_reader :bikes, :capacity
 
-  def initialize
+  DEFAULT_CAPACITY = 20
+
+  def initialize(capacity = DEFAULT_CAPACITY)
+    @capacity = capacity
     @bikes = []
   end
 
@@ -15,7 +18,12 @@ class Garage
 
   private
 
+  def full?
+
+  end
+
   def present?(bike)
     @bikes.include?(bike)
   end
+
 end

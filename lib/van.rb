@@ -11,18 +11,19 @@ class Van
 
   def station_collection(dockingstation)
     raise "There is no space available!" if full?
-    
+
     dockingstation.bikes.each { |bike| 
-      @bikes << dockingstation.bikes.delete(bike) if bike.broken?
+      @bikes << dockingstation.bikes.delete(bike) if bike.broken? && !full?
     }
     @bikes
   end
 
-  # def deliver(container)
-  #   @broken_bikes.each { |bike|
-  #     container.bikes << @broken_bikes.delete(bike) if bike.broken? == true
-  #   }
-  # end
+  def garage_delivery(garage)
+    @bikes.each { |bike|
+      container.bikes << @broken_bikes.delete(bike) if bike.broken? && !garage.full?
+    }
+    @bikes
+  end
 
   private
 
