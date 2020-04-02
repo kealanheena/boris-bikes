@@ -18,6 +18,13 @@ class Van
     @bikes
   end
 
+  def garage_collection(garage)
+    garage.bikes.each { |bike| 
+      @bikes << garage.bikes.delete(bike) unless bike.broken?
+    }
+    @bikes
+  end
+
   def garage_delivery(garage)
     raise "There's no bikes in this van" if empty?
 

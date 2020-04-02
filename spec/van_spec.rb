@@ -32,8 +32,7 @@ describe Van do
 
   describe '#station_collection' do
     it 'should only collect the broken bikes from a docking station' do 
-      van = Van.new
-      expect(van.station_collection(@dockingstation)).to eq [@bike]
+      expect(subject.station_collection(@dockingstation)).to eq [@bike]
     end
 
     it 'should throw an error if it tries to collect at bike while at full capacity' do
@@ -57,7 +56,14 @@ describe Van do
     end
   end
 
-  describe '#deliver' do
+  describe '#garage_collection' do
+    it 'should only collect the working bikes from a garage' do
+      allow(@garage).to receive(:bikes) { [@bike, @bike2] }
+      expect(subject.garage_collection(@garage)).to eq [@bike2]
+    end
+  end
+
+  describe '#garage_delivery' do
     it 'should deliver the broken bikes to the garage' do
       subject.station_collection(@dockingstation)
       expect(subject.garage_delivery(@garage)).to eq []
@@ -71,7 +77,7 @@ describe Van do
     end
 
     it 'should raise an error if the van is empty' do
-      expect{ subject.garage_delivery(@garage) }.to raise_error("There's no bikes in this van")
+      expect { subject.garage_delivery(@garage) }.to raise_error("There's no bikes in this van")
     end
   end
 end
