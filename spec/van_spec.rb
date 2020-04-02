@@ -34,13 +34,19 @@ describe Van do
       van = Van.new
       expect(van.collect(@dockingstation)).to eq [@bike]
     end
-  end
 
-  describe '#deliver' do
-    it 'should deliver the broken bikes to the garage' do
-      van = Van.new
-      van.collect(@dockingstation)
-      expect(van.deliver(@garage)).to eq []
+    it 'should throw an error if it tries to collect at bike while at full capacity' do
+      allow(@dockingstation).to receive(:bikes) { [@bike] }
+      20.times { subject.collect(@dockingstation) }
+      expect { subject.collect(@dockingstation) }.to raise_error("There is no space available!")
     end
   end
+
+  # describe '#deliver' do
+  #   it 'should deliver the broken bikes to the garage' do
+  #     van = Van.new
+  #     van.collect(@dockingstation)
+  #     expect(van.deliver(@garage)).to eq []
+  #   end
+  # end
 end
