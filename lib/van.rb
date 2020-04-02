@@ -10,7 +10,7 @@ class Van
   end
 
   def collect(container)
-    raise "There is no space available!" if @bikes.length >= DEFAULT_CAPACITY
+    raise "There is no space available!" if full?
     container.bikes.each { |bike| 
       @bikes << container.bikes.delete(bike) if bike.broken?
     }
@@ -22,4 +22,11 @@ class Van
   #     container.bikes << @broken_bikes.delete(bike) if bike.broken? == true
   #   }
   # end
+
+  private
+
+  def full?
+    @bikes.length >= capacity
+  end
+
 end

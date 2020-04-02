@@ -40,6 +40,20 @@ describe Van do
       20.times { subject.collect(@dockingstation) }
       expect { subject.collect(@dockingstation) }.to raise_error("There is no space available!")
     end
+
+    it 'should throw an error if it tries to collect at bike while at full capacity' do
+      van = Van.new(19)
+      allow(@dockingstation).to receive(:bikes) { [@bike] }
+      19.times { van.collect(@dockingstation) }
+      expect { van.collect(@dockingstation) }.to raise_error("There is no space available!")
+    end
+
+    it 'should throw an error if it tries to collect at bike while at full capacity' do
+      van = Van.new(21)
+      allow(@dockingstation).to receive(:bikes) { [@bike] }
+      21.times { van.collect(@dockingstation) }
+      expect { van.collect(@dockingstation) }.to raise_error("There is no space available!")
+    end
   end
 
   # describe '#deliver' do
