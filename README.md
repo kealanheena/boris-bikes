@@ -1,4 +1,6 @@
-# Boris Bikes
+### [Makers Academy](http://www.makersacademy.com) - Week 2 Project
+
+# Boris Bikes Challenge
 London's Boris Bikes wanted to create transport for London, a new bike system that has a network of docking stations and bikes that anyone can use.
 
 ## User Stories
