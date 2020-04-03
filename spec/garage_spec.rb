@@ -26,7 +26,7 @@ describe Garage do
   end
   
   describe '#repair' do
-    it 'should repair the broken bikes' do
+    it 'should repair the broken bike' do
       garage = Garage.new
       allow(garage).to receive(:present?).with(@bike) { true }
       garage.repair(@bike)

@@ -30,6 +30,9 @@ class Van
   end
 
   def station_delivery(dockingstation)
+    raise "There's no bikes in this van" if empty?
+    raise "There is no space available!" if dockingstation.full?
+
     @bikes.each { |bike| 
       dockingstation.bikes << @bikes.delete(bike) unless bike.broken?
     }

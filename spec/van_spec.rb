@@ -11,6 +11,7 @@ describe Van do
     allow(@bike2).to receive(:broken?) { false }
     allow(@dockingstation).to receive(:bikes) { [@bike, @bike2] }
     allow(@dockingstation).to receive(:empty?) { false }
+    allow(@dockingstation).to receive(:full?) { false }
     allow(@garage).to receive(:bikes) { [] }
     allow(@garage).to receive(:empty?) { false }
     allow(@garage).to receive(:full?) { false }
@@ -86,7 +87,18 @@ describe Van do
     it 'should deliver the working bikes to the docking station' do
       subject.bikes << @bike
       subject.bikes << @bike2
+      allow(subject).to receive(:empty?) { false }
       expect(subject.station_delivery(@dockingstation)).to eq [@bike]
+    end
+
+    it 'should raise an error if the van is empty' do
+      expect { subject.station_delivery(@dockingstation) }.to raise_error("There's no bikes in this van")
+    end
+
+    it 'should raise an error if the docking station is full is empty' do
+      allow(subject).to receive(:empty?) { false }
+      allow(@dockingstation).to receive(:full?) { true }
+      expect { subject.station_delivery(@dockingstation) }.to raise_error("There is no space available!")
     end
   end
 
