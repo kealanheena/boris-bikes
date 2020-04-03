@@ -90,9 +90,8 @@ describe Van do
 
     it 'should not deliver bikes when the garage is full' do
       allow(@garage).to receive(:full?) { true }
-      allow(@bike2).to receive(:broken?) { true }
-      subject.station_collection(@dockingstation)
-      expect(subject.garage_delivery(@garage)).to eq [@bike, @bike2]
+      allow(subject).to receive(:empty?) { false }
+      expect { subject.garage_delivery(@garage) }.to raise_error("There is no space available!")
     end
 
     it 'should raise an error if the van is empty' do

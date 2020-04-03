@@ -31,6 +31,7 @@ class Van
 
   def garage_delivery(garage)
     raise "There's no bikes in this van" if empty?
+    raise "There is no space available!" if garage.full?
 
     @bikes.each { |bike|
       garage.bikes << @bikes.delete(bike) if bike.broken? && !garage.full?
