@@ -17,7 +17,7 @@ describe Van do
     allow(@garage).to receive(:full?) { false }
   end
 
-  describe 'initialize' do
+  describe '#initialize' do
     it 'should have a default capacity of 20' do
       expect(subject::capacity).to eq(20)
     end

@@ -81,16 +81,23 @@ You'll be able to:
 - Report a broken bike
 - Collect bikes from docking station
 - Deliver bikes to garage
+- Repair a bike
+- Collect bikes from garge station
+- Deliver bikes to dockingstation
 - You'll be given an error:
-  - If you try to take a bike when the dockingstation is empty
+  - If you try to take/collect a bike when the dockingstation is empty
   - If you try to take a bike that isn't working from dockingstation
-  - If you try to dock a bike land when the dockingstation is full
+  - If you try to dock a bike dock/deliver when the dockingstation is full
+  - If you try to take a bike when the van is empty
+  - If you try to dock a deliver land when the van is full
+  - If you try to take a bike when the garage is empty
+  - If you try to dock a deliver land when the garage is full
 
 ## Getting Started
 
 This programme is used in the terminal.
 
-## Local Setup
+### Local Setup
 
 ```sh
 $ git clone https://github.com/kealanheena/boris-bikes.git
@@ -108,7 +115,7 @@ $ cd boris-bikes
 
 You can run tests by running "rspec" in boris-bikes file.
 
-### Tests 
+## Tests 
 
 ### Bike Class
 
@@ -144,14 +151,40 @@ You can run tests by running "rspec" in boris-bikes file.
 
  ### Van Class
 
- - #collect
-  - should only collect the broken bikes
+- #initialize
+  - should have a default capacity of 20
+  - should have a capacity of 25 when 25 is passed as an argument
+  - should have a capacity of 25 when 25 is passed as an argument
+- #station_collection
+  - should only collect the broken bikes from a docking station
+  - should throw an error when the docking station is empty
+  - should throw an error if it tries to collect at bike while at full capacity
+  - should throw an error if it tries to collect at bike while at full capacity
+  - should throw an error if it tries to collect at bike while at full capacity
+- #garage_collection
+  - should only collect the working bikes from a garage
+  - should throw an error if the garage is empty
+  - should not collect bikes if the van is full
+- #station_delivery
+  - should deliver the working bikes to the docking station
+  - should raise an error if the van is empty
+  - should raise an error if the docking station is full is empty
+- #garage_delivery
+  - should deliver the broken bikes to the garage
+  - should not deliver bikes when the garage is full
+  - should raise an error if the van is empty
+
 
 ### Garage Class
 
+- #initialize
+  - should have a default capacity of 20
+  - should have a capacity of 25 when 25 is passed as an argument
+  - should have a capacity of 25 when 25 is passed as an argument
 - #repair
-  - should repair the broken bikes
-  - should raise an error if the bike isn\'t broken
+  - should repair the broken bike
+  - should raise an error if the bike isn't broken
+  - should raise error if the bike isn\'t in the garage
 
 ## Versioning
 
