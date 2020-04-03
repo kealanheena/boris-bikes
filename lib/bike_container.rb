@@ -23,5 +23,4 @@ module BikeContainer
     @bikes.include?(bike)
   end
 
-
 end

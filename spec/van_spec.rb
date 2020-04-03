@@ -17,22 +17,6 @@ describe Van do
     allow(@garage).to receive(:full?) { false }
   end
 
-  describe '#initialize' do
-    it 'should have a default capacity of 20' do
-      expect(subject::capacity).to eq(20)
-    end
-
-    it 'should have a capacity of 25 when 25 is passed as an argument' do
-      van = Van.new(25)
-      expect(van::capacity).to eq(25)
-    end
-
-    it 'should have a capacity of 25 when 25 is passed as an argument' do
-      van = Van.new(15)
-      expect(van::capacity).to eq(15)
-    end
-  end
-
   describe '#station_collection' do
     it 'should only collect the broken bikes from a docking station' do 
       expect(subject.station_collection(@dockingstation)).to eq [@bike]
