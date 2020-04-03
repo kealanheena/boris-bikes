@@ -144,17 +144,9 @@ You can run tests by running "rspec" in boris-bikes file.
   - throws an error if capacity is full when initialized with a capacity of 19
   - throws an error if capacity is full when initialized with a capacity of 21
   - should allow broken bikes to be docked
-- #initialized
- - should be initialized with no bikes
- - capacity should equal 25 when 25 is passed as an argument
- - capacity should equal 20 when no argument is passed
 
  ### Van Class
 
-- #initialize
-  - should have a default capacity of 20
-  - should have a capacity of 25 when 25 is passed as an argument
-  - should have a capacity of 25 when 25 is passed as an argument
 - #station_collection
   - should only collect the broken bikes from a docking station
   - should throw an error when the docking station is empty
@@ -177,14 +169,23 @@ You can run tests by running "rspec" in boris-bikes file.
 
 ### Garage Class
 
-- #initialize
-  - should have a default capacity of 20
-  - should have a capacity of 25 when 25 is passed as an argument
-  - should have a capacity of 25 when 25 is passed as an argument
 - #repair
   - should repair the broken bike
   - should raise an error if the bike isn't broken
   - should raise error if the bike isn\'t in the garage
+
+### Bike Container Module
+
+- #initialized
+ - should be initialized with no bikes
+ - capacity should equal 25 when 25 is passed as an argument
+ - capacity should equal 20 when no argument is passed
+- Docking Station
+  - it behaves like a bike container
+- Van
+  - it behaves like a bike container
+- Garage
+  - it behaves like a bike container
 
 ## Versioning
 
