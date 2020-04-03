@@ -7,6 +7,21 @@ describe DockingStation do
     allow(@bike).to receive(:broken?) { false }
   end
 
+
+  describe "#initialized" do
+    it "should be initialized with no bikes" do 
+      expect(subject.bikes).to eq []
+    end
+
+    it "capacity should equal 25 when 25 is passed as an argument" do
+      expect(DockingStation.new(25).capacity).to eq(25)
+    end
+    
+    it "capacity should equal 20 when no argument is passed" do
+      expect(subject::capacity).to eq(20)
+    end
+  end
+
   describe "#release_bike" do
     it "responds to 'release_bike' method" do
       expect(subject).to respond_to(:release_bike)
@@ -69,17 +84,4 @@ describe DockingStation do
     end
   end
 
-  describe "#initialized" do
-    it "should be initialized with no bikes" do 
-      expect(subject.bikes).to eq []
-    end
-
-    it "capacity should equal 25 when 25 is passed as an argument" do
-      expect(DockingStation.new(25).capacity).to eq(25)
-    end
-    
-    it "capacity should equal 20 when no argument is passed" do
-      expect(subject::capacity).to eq(20)
-    end
-  end
 end

@@ -1,13 +1,8 @@
+require_relative 'bike_container'
+
 class Van
 
-  attr_reader :capacity, :bikes
-
-  DEFAULT_CAPACITY = 20
-
-  def initialize(capacity = DEFAULT_CAPACITY)
-    @capacity = capacity
-    @bikes = []
-  end
+  include BikeContainer
 
   def station_collection(dockingstation) 
     raise "There is no bikes to collect!" if dockingstation.empty?
@@ -47,16 +42,6 @@ class Van
       garage.bikes << @bikes.delete(bike) if bike.broken? && !garage.full?
     }
     @bikes
-  end
-
-  private
-
-  def full?
-    @bikes.count >= capacity
-  end
-
-  def empty?
-    @bikes.count < 1
   end
 
 end
