@@ -82,6 +82,14 @@ describe Van do
     end
   end
 
+  describe '#station_delivery' do
+    it 'should deliver the working bikes to the docking station' do
+      subject.bikes << @bike
+      subject.bikes << @bike2
+      expect(subject.station_delivery(@dockingstation)).to eq [@bike]
+    end
+  end
+
   describe '#garage_delivery' do
     it 'should deliver the broken bikes to the garage' do
       subject.station_collection(@dockingstation)
