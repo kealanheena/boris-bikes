@@ -111,7 +111,7 @@ $ cd boris-bikes
 
 #### To Start
 
-- Run "ruby  boris-bikes.rb" file in terminal.
+- Run irb and require "./lib/dockingstation.rb" "./lib/van.rb" and "./lib/garage.rb" files in terminal.
 
 ## Running the tests
 
